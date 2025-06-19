@@ -1,1 +1,1 @@
-#This repo represents the DSA examples and excercises
+This repo represents the DSA examples and excercises
