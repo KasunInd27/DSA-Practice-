@@ -25,14 +25,14 @@ singlyLinkedList.head.next.next.value;  // 12*/
 package singlyLinkedListInsert;
 
 public class SinglyLinkedListInsert {
-	public Node head;    // First node of the list
-	public Node tail;    // Last node of the list
-	public int size;     // Total number of nodes
-	
+	public Node head; // First node of the list
+	public Node tail; // Last node of the list
+	public int size; // Total number of nodes
+
 	// Initialize the list with the first node
 	public Node insertSinglyLinkedList(int nodeValue) {
-		head = new Node();         // Create a dummy node
-		Node node = new Node();    // Actual first node
+		head = new Node(); // Create a dummy node
+		Node node = new Node(); // Actual first node
 		node.next = null;
 		node.value = nodeValue;
 		head = node;
@@ -40,32 +40,32 @@ public class SinglyLinkedListInsert {
 		size = 1;
 		return head;
 	}
-	
+
 	// Adds a node to the end of the list
 	public void push(int nodeValue) {
-		if(head == null) {
-			insertSinglyLinkedList(nodeValue);  // Create first node if list is empty
+		if (head == null) {
+			insertSinglyLinkedList(nodeValue); // Create first node if list is empty
 			return;
 		} else {
 			Node node = new Node();
 			node.value = nodeValue;
 			node.next = null;
 			tail.next = node;
-			tail = node;    // Move tail to the newly added node
+			tail = node; // Move tail to the newly added node
 			size++;
-			
+
 		}
 	}
-	
+
 	// Removes a node from the end of the list
 	public Node pop() {
-		if(head == null) {
+		if (head == null) {
 			System.out.println("The SLL does not exist");
 			return null;
 		}
-		
+
 		Node removeNode;
-		if(head == tail) {    // Only one node exists
+		if (head == tail) { // Only one node exists
 			removeNode = head;
 			head = tail = null;
 		} else {
@@ -77,11 +77,11 @@ public class SinglyLinkedListInsert {
 			currentNode.next = null;
 			tail = currentNode;
 		}
-		
+
 		size--;
 		return removeNode;
 	}
-	
+
 	// Returns the node at the given index
 	public Node get(int index) {
 		if (index < 0 || index >= size) {
@@ -93,35 +93,35 @@ public class SinglyLinkedListInsert {
 		}
 		return currentNode;
 	}
-	
+
 	// Inserts a node at a specific index
 	public boolean insert(int data, int index) {
 		Node newNode = new Node();
 		newNode.value = data;
-		
-		if (index < 0 || index > size) {  // Index is invalid
+
+		if (index < 0 || index > size) { // Index is invalid
 			return false;
 		}
-		
-		if(head == null) {  // Empty list
+
+		if (head == null) { // Empty list
 			head = newNode;
 			tail = newNode;
 		} else {
-			if (index == 0) {  // Insert at the head
+			if (index == 0) { // Insert at the head
 				newNode.next = head;
 				head = newNode;
-			}else if (index == size) {  // Insert at the tail
+			} else if (index == size) { // Insert at the tail
 				tail.next = newNode;
 				newNode.next = null;
 				tail = newNode;
-			}else {   // Insert in the middle
+			} else { // Insert in the middle
 				Node tempNode = head;
 				int inx = 0;
 				while (inx < index - 1) {
 					tempNode = tempNode.next;
 					inx += 1;
 				}
-				
+
 				Node nextNode = tempNode.next;
 				tempNode.next = newNode;
 				newNode.next = nextNode;
@@ -130,7 +130,7 @@ public class SinglyLinkedListInsert {
 		size++;
 		return true;
 	}
-	
+
 	// Print all node values
 	public void printList() {
 		Node current = head;
@@ -140,4 +140,4 @@ public class SinglyLinkedListInsert {
 		}
 		System.out.println("null");
 	}
-}  
+}
